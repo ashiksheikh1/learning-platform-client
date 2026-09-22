@@ -51,24 +51,29 @@ export async function DashboardSidebar() {
     },
     {
       icon: FaTasks,
-      label: "My Submissions",
+      label: "Submit Assignment",
       href: "/dashboard/student/submitted",
     },
     {
-      icon: MdAnalytics,
-      label: "Upcoming",
-      href: "/dashboard/student/upcoming",
+      icon: FaTasks,
+      label: "My Submissions",
+      href: "/dashboard/student/mysubmissions",
     },
-    {
-      icon: MdPerson,
-      label: "Approved",
-      href: "/dashboard/student/approved",
-    },
-    {
-      icon: MdPerson,
-      label: "Improvement",
-      href: "/dashboard/student/improvement",
-    },
+    // {
+    //   icon: MdAnalytics,
+    //   label: "Upcoming",
+    //   href: "/dashboard/student/upcoming",
+    // },
+    // {
+    //   icon: MdPerson,
+    //   label: "Approved",
+    //   href: "/dashboard/student/approved",
+    // },
+    // {
+    //   icon: MdPerson,
+    //   label: "Improvement",
+    //   href: "/dashboard/student/improvement",
+    // },
     {
       icon: MdPerson,
       label: "Profile",
@@ -98,10 +103,15 @@ export async function DashboardSidebar() {
       href: "/dashboard/instructor/assignments",
     },
     {
-      icon: MdRateReview,
-      label: "Student Submissions",
-      href: "/dashboard/instructor/submissions",
+      icon: MdAssignment,
+      label: "ReviewSubmissions",
+      href: "/dashboard/instructor/reviewsubmissions",
     },
+    // {
+    //   icon: MdRateReview,
+    //   label: "Student Submissions",
+    //   href: "/dashboard/instructor/submissions",
+    // },
     {
       icon: MdAnalytics,
       label: "Learning Analytics",
@@ -112,16 +122,12 @@ export async function DashboardSidebar() {
       label: "AI Assistant",
       href: "/dashboard/instructor/ai-assistant",
     },
-    {
-      icon: MdPeople,
-      label: "Students",
-      href: "/dashboard/instructor/students",
-    },
-    {
-      icon: MdPerson,
-      label: "Profile",
-      href: "/dashboard/instructor/profile",
-    },
+    // {
+    //   icon: MdPeople,
+    //   label: "Students",
+    //   href: "/dashboard/instructor/students",
+    // },
+    
   ];
 
 

@@ -15,40 +15,14 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { FcAcceptDatabase, FcBusinessman } from "react-icons/fc";
+import { RiPassPendingFill } from "react-icons/ri";
+import { FaUserNurse } from "react-icons/fa";
+import { MdSelfImprovement, MdSendAndArchive } from "react-icons/md";
+import { LuScanFace } from "react-icons/lu";
 
-const InstructorDashboard = () => {
-  const stats = [
-    {
-      title: "Total Assignments",
-      value: "24",
-      icon: BookOpen,
-      description: "Assignments created",
-    },
-    {
-      title: "Total Submissions",
-      value: "186",
-      icon: ClipboardCheck,
-      description: "Student submissions",
-    },
-    {
-      title: "Pending Reviews",
-      value: "32",
-      icon: Clock3,
-      description: "Waiting for review",
-    },
-    {
-      title: "Accepted",
-      value: "128",
-      icon: CheckCircle2,
-      description: "Successfully accepted",
-    },
-    {
-      title: "Needs Improvement",
-      value: "26",
-      icon: AlertCircle,
-      description: "Require improvement",
-    },
-  ];
+const InstructorDashboard = ({allsubmision,getAssignmentsAll}) => {
+ console.log("alllsubbbbbbb",allsubmision)
 
   const assignments = [
     {
@@ -134,7 +108,7 @@ const InstructorDashboard = () => {
             </p>
           </div>
 
-          <Link href="/dashboard/instructor/assignments/create">
+          {/* <Link href="/dashboard/instructor/assignments/create">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -143,7 +117,7 @@ const InstructorDashboard = () => {
               <Plus size={20} />
               Create Assignment
             </motion.button>
-          </Link>
+          </Link> */}
 
         </div>
       </motion.div>
@@ -152,48 +126,206 @@ const InstructorDashboard = () => {
       {/* Statistics */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
 
-        {stats.map((stat, index) => {
-
-          const Icon = stat.icon;
-
-          return (
+       
             <motion.div
-              key={stat.title}
+            
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08 }}
+            //   transition={{ delay: index * 0.08 }}
               whileHover={{ y: -5 }}
               className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
             >
 
               <div className="mb-4 flex items-center justify-between">
 
-                <div className="rounded-xl bg-purple-100 p-3 text-purple-600 dark:bg-purple-950">
-                  <Icon size={22} />
-                </div>
+              
 
-                <TrendingUp
-                  size={18}
-                  className="text-green-500"
+                <FaUserNurse
+                  size={38}
+                  className="text-purple-600"
                 />
 
               </div>
 
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                {stat.value}
+                {getAssignmentsAll.length}
               </h2>
 
               <p className="mt-1 font-medium text-gray-700 dark:text-gray-300">
-                {stat.title}
+                Total Assignment
               </p>
 
               <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
-                {stat.description}
+             
+                create instructor
               </p>
 
             </motion.div>
-          );
-        })}
+            <motion.div
+            
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+            //   transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -5 }}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+            >
+
+              <div className="mb-4 flex items-center justify-between">
+
+              
+
+                <MdSendAndArchive
+                  size={38}
+                  className="text-purple-600"
+                />
+
+              </div>
+
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {allsubmision.length}
+              </h2>
+
+              <p className="mt-1 font-medium text-gray-700 dark:text-gray-300">
+                Total Submission
+              </p>
+
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+             
+                create Student
+              </p>
+
+            </motion.div>
+            <motion.div
+            
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+            //   transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -5 }}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+            >
+
+              <div className="mb-4 flex items-center justify-between">
+
+              
+
+                <RiPassPendingFill 
+                  size={38}
+                className="text-purple-600"
+                />
+
+              </div>
+   <div>
+            <div className="rounded-xl bg-white p-6 shadow dark:bg-gray-800">
+  <p className="text-sm text-gray-500">
+    {/* Active Assignments */}
+  </p>
+
+  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+    {allsubmision.filter(
+      (item) => item.status === "Pending"
+    ).length}
+  </h2>
+</div>
+
+              <p className="mt-1 font-medium text-gray-700 dark:text-gray-300">
+                Total Pending  
+              </p>
+
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+             
+                create Student
+              </p>
+              </div>
+
+            </motion.div>
+            <motion.div
+            
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+            //   transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -5 }}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+            >
+
+              <div className="mb-4 flex items-center justify-between">
+
+              
+
+                <LuScanFace
+                  size={38}
+                  className="text-purple-600"
+                />
+
+              </div>
+   <div>
+            <div className="rounded-xl bg-white p-6 shadow dark:bg-gray-800">
+  <p className="text-sm text-gray-500">
+    {/* Active Assignments */}
+  </p>
+
+  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+    {allsubmision.filter(
+      (item) => item.status === "Accepted"
+    ).length}
+  </h2>
+</div>
+
+              <p className="mt-1 font-medium text-gray-700 dark:text-gray-300">
+                Total Accepted  
+              </p>
+
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+             
+                create instructor
+              </p>
+              </div>
+
+            </motion.div>
+            <motion.div
+            
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+            //   transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -5 }}
+              className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900"
+            >
+
+              <div className="mb-4 flex items-center justify-between">
+
+              
+
+                <MdSelfImprovement
+                  size={38}
+                  className="text-purple-600"
+                />
+
+              </div>
+              {/* statuce */}
+             <div>
+            <div className="rounded-xl bg-white p-6 shadow dark:bg-gray-800">
+  <p className="text-sm text-gray-500">
+    {/* Active Assignments */}
+  </p>
+
+  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+    {allsubmision.filter(
+      (item) => item.status === "Needs Improvement"
+    ).length}
+  </h2>
+</div>
+
+              <p className="mt-1 font-medium text-gray-700 dark:text-gray-300">
+                Total Improvement
+              </p>
+
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-500">
+             
+                create instructor
+              </p>
+              </div>
+
+            </motion.div>
+         
 
       </div>
 
@@ -202,7 +334,7 @@ const InstructorDashboard = () => {
       <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
 
         {/* Recent Assignments */}
-        <div className="xl:col-span-2">
+        {/* <div className="xl:col-span-2">
 
           <div className="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
 
@@ -294,11 +426,11 @@ const InstructorDashboard = () => {
 
           </div>
 
-        </div>
+        </div> */}
 
 
         {/* Quick Actions */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
+        {/* <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
 
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
             Quick Actions
@@ -392,13 +524,13 @@ const InstructorDashboard = () => {
 
           </div>
 
-        </div>
+        </div> */}
 
       </div>
 
 
       {/* Recent Submissions */}
-      <div className="mt-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+      {/* <div className="mt-6 rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
 
         <div className="flex items-center justify-between border-b border-gray-200 p-5 dark:border-gray-800">
 
@@ -510,11 +642,11 @@ const InstructorDashboard = () => {
 
         </div>
 
-      </div>
+      </div> */}
 
 
       {/* Performance */}
-      <div className="mt-6 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-white">
+      {/* <div className="mt-6 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 p-6 text-white">
 
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
 
@@ -547,7 +679,7 @@ const InstructorDashboard = () => {
 
         </div>
 
-      </div>
+      </div> */}
 
     </div>
   );

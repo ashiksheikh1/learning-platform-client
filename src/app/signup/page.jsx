@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const RegisterPage = () => {
@@ -26,9 +27,9 @@ const RegisterPage = () => {
   });
 
       console.log("data, error",{ data, error});
-      // if(data){
-      //   redirect("/")
-      // }
+      if(data){
+        redirect("/")
+      }
   };
 
   return (

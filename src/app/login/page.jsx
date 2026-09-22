@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BookOpen, Lock, Mail, ArrowRight } from "lucide-react";
 import { authClient } from './../../lib/auth-client';
+import { redirect } from "next/navigation";
 
 const LoginPage = () => {
   // const [showPassword, setShowPassword] = useState(false);
@@ -26,9 +27,9 @@ const LoginPage = () => {
     });
   
         console.log("data, error",{ data, error});
-        // if(data){
-        //   redirect("/")
-        // }
+        if(data){
+          redirect("/")
+        }
     };
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-100 dark:from-gray-950 dark:via-gray-900 dark:to-purple-950 flex items-center justify-center px-4 py-10">

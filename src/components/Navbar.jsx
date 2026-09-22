@@ -69,7 +69,7 @@ const Navbar = () => {
               Home
             </Link>
 
-            <Link
+            {/* <Link
               href="/about"
               className="flex items-center gap-1.5 text-sm font-medium text-gray-600 transition hover:text-purple-600 dark:text-gray-300"
             >
@@ -83,7 +83,7 @@ const Navbar = () => {
             >
               <ClipboardList size={17} />
               Assignments
-            </Link>
+            </Link> */}
 
 
             {/* Student Dashboard */}
@@ -195,21 +195,21 @@ const Navbar = () => {
                   Home
                 </Link>
 
-                <Link
+                {/* <Link
                   href="/about"
                   onClick={() => setIsMenuOpen(false)}
                   className="block rounded-lg px-3 py-3 text-sm font-medium hover:bg-purple-50 hover:text-purple-600"
                 >
                   About
-                </Link>
+                </Link> */}
 
-                <Link
+                {/* <Link
                   href="/assignments"
                   onClick={() => setIsMenuOpen(false)}
                   className="block rounded-lg px-3 py-3 text-sm font-medium hover:bg-purple-50 hover:text-purple-600"
                 >
                   Assignments
-                </Link>
+                </Link> */}
 
 
                 {/* Student Dashboard */}
